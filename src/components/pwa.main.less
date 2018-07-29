@@ -1,0 +1,235 @@
+@import 'common';
+
+@box-shadow-1-color: rgba(0, 0, 0, 0.14);
+@box-shadow-2-color: rgba(0, 0, 0, 0.2);
+@box-shadow-3-color: rgba(0, 0, 0, 0.12);
+
+@temp-color: #888;
+
+@mdl-btn-color: black;
+@mdl-button-child-color: #3f51b5;
+@mdl-button-focus: rgba(0, 0, 0, 0.12); 
+@mdl-button-hover: rgba(158, 158, 158, 0.2); 
+@mdl-button-active: rgba(158, 158, 158, 0.4); 
+
+.main {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    .card {
+        padding: 16px;
+        position: relative;
+        box-sizing: border-box;
+        background: @white;
+        border-radius: 2px;
+        margin: 16px;
+        box-shadow: 0 2px 2px 0 @box-shadow-1-color, 0 3px 1px -2px @box-shadow-2-color, 0 1px 5px 0 @box-shadow-3-color;
+    }
+    .weather-forecast {
+        .location {
+            font-size: 1.75em;
+        }
+        .date, .description {
+            font-size: 1.25em;
+        }
+        .current {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            .icon {
+                width: 128px;
+                height: 128px;
+            }
+            .visual {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                font-size: 4em;
+                .scale {
+                    font-size: 0.5em;
+                    vertical-align: super;
+                }
+            }
+            .visual, .description {
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+            }
+            .sunset:before {
+                content: "Sunset: ";
+                color: @temp-color;
+            }
+            .wind:before {
+                content: "Wind: ";
+                color: @temp-color;
+            }
+            .sunrise:before {
+                content: "Sunrise: ";
+                color: @temp-color;
+            }
+            .humidity:before {
+                content: "Humidity: ";
+                color: @temp-color;
+            }
+            .pollen:before {
+                content: "Pollen Count: ";
+                color: @temp-color;
+            }
+            .pcount:before {
+                content: "Pollen ";
+                color: @temp-color;
+            }
+        }
+        .future {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            .oneday {
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                text-align: center;
+                .icon {
+                    width: 64px;
+                    height: 64px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .temp-high, .temp-low {
+                    display: inline-block;
+                }
+                .temp-low {
+                    color: @temp-color;
+                }
+            }
+        }
+        .icon {
+            background-repeat: no-repeat;
+            background-size: contain;
+            &.clear-day {
+                background-image: url("../assets/images/clear.png");
+            }
+            &.clear-night {
+                background-image: url("../assets/images/clear.png");
+            }
+            &.rain {
+                background-image: url("../assets/images/rain.png");
+            }
+            &.snow {
+                background-image: url("../assets/images/snow.png");
+            }
+            &.sleet {
+                background-image: url("../assets/images/sleet.png");
+            }
+            &.windy {
+                background-image: url("../assets/images/wind.png");
+            }
+            &.fog {
+                background-image: url("../assets/images/fog.png");
+            }
+            &.cloudy {
+                background-image: url("../assets/images/cloudy.png");
+            }
+            &.partly-cloudy-day {
+                background-image: url("../assets/images/partly-cloudy.png");
+            }
+            &.partly-cloudy-night {
+                background-image: url("../assets/images/partly-cloudy.png");
+            }
+            &.thunderstorms {
+                background-image: url("../assets/images/thunderstorm.png");
+            }
+        }
+    }
+    @media (max-width: 450px) {
+        .weather-forecast {
+            .date, .description {
+                font-size: 0.9em;
+            }
+            .current {
+                .icon {
+                    width: 96px;
+                    height: 96px;
+                }
+                .visual {
+                    font-size: 3em;
+                }
+            }
+            .future {
+                .oneday {
+                    .icon {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mdl-button {
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    color: @mdl-btn-color;
+    position: relative;
+    height: 36px;
+    margin: 0;
+    min-width: 64px;
+    padding: 0 16px;
+    display: inline-block;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0;
+    overflow: hidden;
+    will-change: box-shadow;
+    -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 36px;
+    vertical-align: middle;
+    &::-moz-focus-inner {
+        border: 0;
+    }
+    &:hover {
+        background-color: @mdl-button-hover;
+    }
+    &:focus:not(:active) {
+        background-color: @mdl-button-focus;
+    }
+    &:active {
+        background-color: @mdl-button-active;
+    }
+    &.mdl-button--colored {
+        color: @mdl-button-child-color;
+    }
+    &.mdl-button--colored:focus:not(:active) {
+        background-color: @mdl-button-focus;
+    }
+}
+
+.mdl-button--primary.mdl-button--primary {
+    color: @mdl-button-child-color;
+    .mdl-ripple {
+        background: @white;
+    }
+    &.mdl-button--raised, &.mdl-button--fab {
+        color: @white;
+        background-color: @mdl-button-child-color;
+    }
+}
