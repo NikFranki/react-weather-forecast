@@ -1,1 +1,1 @@
-export const HELLO = 'hello';
+export const CREATEMAINDATA = 'createmaindata';

@@ -1,21 +1,17 @@
 import { combineReducers } from 'redux';
-import { HELLO } from '../../constant';
+import { CREATEMAINDATA } from '../../constant';
 
-const initState = {
-    aa: 'ss'
-};
-
-const pwa = (state = initState, action) => {
-    switch(action.type) {
-        case HELLO:
-            return Object.assign({}, ...state, action.payload);
+const maindata = (state = [], action) => {
+    switch (action.type) {
+        case CREATEMAINDATA:
+            return action.payload;
         default:
             return state;
     }
 }
 
 const pwaReducer = combineReducers({
-    pwa
+    maindata
 });
 
 export default pwaReducer;

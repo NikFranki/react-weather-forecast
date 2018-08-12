@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
-import { Say_Hello } from '../redux/actions';
+import { create_main_data } from '../redux/actions';
 import Page from '../views/App';
 
 const mapStateToProps = state => {
     return {
-        app: state
+        app: state,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSay: () => {
-            dispatch(Say_Hello())
+        onCreateMainData: (data) => {
+            dispatch(create_main_data(data))
         }
     }
 }

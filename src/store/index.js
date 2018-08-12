@@ -9,7 +9,7 @@ export default class Store extends Component {
         const store = createStore(pwaReducer);
         const obj = {store};
         const children = React.Children.only(this.props.children);
-        const newChildren =  React.cloneElement(children, {
+        const newChildren = React.cloneElement(children, {
                 ...children.props.style, ...style
             }
         );

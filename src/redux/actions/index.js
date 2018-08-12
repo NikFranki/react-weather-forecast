@@ -1,8 +1,8 @@
-import { HELLO } from '../../constant';
+import { CREATEMAINDATA } from '../../constant';
 
-export const Say_Hello = () => {
+export const create_main_data = (data) => {
     return {
-        type: HELLO,
-        payload: {aa: 'hello world!', bb: 'aa'}
+        type: CREATEMAINDATA,
+        payload: data
     }
 }

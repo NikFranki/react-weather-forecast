@@ -50,7 +50,7 @@ export default class Dialog extends Component {
                     <div className="dialog">
                     <div className="dialog-title">Add new city</div>
                     <div className="dialog-body">
-                        <select id="selectCityToAdd">
+                    <select ref={el => this.selectCityToAdd = el}>
                         <option value="2357536">Austin, TX</option>
                         <option value="2367105">Boston, MA</option>
                         <option value="2379574">Chicago, IL</option>
