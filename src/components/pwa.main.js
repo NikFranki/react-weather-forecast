@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import History from '../util/history';
 import './pwa.main.less';
 
 export default class Main extends Component {
@@ -42,7 +43,7 @@ export default class Main extends Component {
                             } = item;
 
                             return (
-                                <div ref={el => this.cardTemplate = el} className="card cardTemplate weather-forecast" key={key}>
+                                <div onClick={() => History.push('/detail')} ref={el => this.cardTemplate = el} className="card cardTemplate weather-forecast" key={key}>
                                     <div className="city-key" hidden></div>
                                     <div className="card-last-updated" hidden>{cardLastUpdated}</div>
                                     <div className="location">{label}</div>

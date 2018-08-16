@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { create_main_data } from '../redux/actions';
-import Page from '../views/App';
+import Page from '../views/home/App';
 
 const mapStateToProps = state => {
     return {
