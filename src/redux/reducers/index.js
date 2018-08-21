@@ -1,17 +1,14 @@
-import { combineReducers } from 'redux';
-import { CREATEMAINDATA } from '../../constant';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import maindata from './home';
+import detail from './detail';
 
-const maindata = (state = [], action) => {
-    switch (action.type) {
-        case CREATEMAINDATA:
-            return action.payload;
-        default:
-            return state;
-    }
-}
-
-const pwaReducer = combineReducers({
-    maindata
+const pwaReducers = combineReducers({
+    maindata,
+    detail
 });
 
-export default pwaReducer;
+const store = createStore(pwaReducers, applyMiddleware(thunk));
+window.mstore = store;
+
+export default store;

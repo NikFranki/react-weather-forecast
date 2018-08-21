@@ -187,7 +187,6 @@ class App extends Component {
                 showArr: arr
             });
         }
-
         onCreateMainData(this.state.showArr);
     
         // Verifies the data provide is newer than what's already visible

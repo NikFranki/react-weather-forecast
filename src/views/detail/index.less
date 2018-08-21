@@ -1,0 +1,111 @@
+@import '../../components/common.less';
+
+.classify {
+    &.clear-day {
+        background-image: url("../../assets/images/clear.png");
+    }
+    &.clear-night {
+        background-image: url("../../assets/images/clear.png");
+    }
+    &.rain {
+        background-image: url("../../assets/images/rain.png");
+    }
+    &.snow {
+        background-image: url("../../assets/images/snow.png");
+    }
+    &.sleet {
+        background-image: url("../../assets/images/sleet.png");
+    }
+    &.windy {
+        background-image: url("../../assets/images/wind.png");
+    }
+    &.fog {
+        background-image: url("../../assets/images/fog.png");
+    }
+    &.cloudy {
+        background-image: url("../../assets/images/cloudy.png");
+    }
+    &.partly-cloudy-day {
+        background-image: url("../../assets/images/partly-cloudy.png");
+    }
+    &.partly-cloudy-night {
+        background-image: url("../../assets/images/partly-cloudy.png");
+    }
+    &.thunderstorms {
+        background-image: url("../../assets/images/thunderstorm.png");
+    }
+}
+
+.city-forecast-detail {
+    .top {
+        &>img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .city-name {
+            display: inline-block;
+            margin-top: 3px;
+            margin-left: 50px;
+            p {
+                margin: 0;
+            }
+        }
+        .operation {
+            float: right;
+            margin-top: 6px;
+            img:last-child {
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+        }
+    }
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        top: 39px;
+        bottom: 100px;
+    }
+    .bottom {
+        height: 100px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        div:first-child {
+            height: 60%;
+            display: flex;
+            align-items: center;
+            font-size: 50px;
+            div {
+                width: 60px;
+                height: 60px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                .classify;
+            }
+        }
+        div:last-child {
+            font-size: 16px;
+        }
+    }
+    .bg {
+        .classify;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: cover;
+        filter: blur(20px);
+        opacity: .8;
+        transform: translateZ(0);
+        transition: background-image .3s ease;
+    }
+}
