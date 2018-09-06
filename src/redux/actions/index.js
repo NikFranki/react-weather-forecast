@@ -1,5 +1,5 @@
-import { CREATEMAINDATA } from '../../constant';
-import { DETAIL } from '../../constant';
+import { CREATEMAINDATA } from 'Src/constant';
+import { DETAIL } from 'Src/constant';
 
 export const create_main_data = (data) => {
     return {

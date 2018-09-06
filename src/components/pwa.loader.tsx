@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import './pwa.loader.less';
 
-export default class Loader extends Component {
-    state = {
-        loader: true
-    }
+const initialState = {
+    loader: true
+}
+
+type State = Readonly<typeof initialState>
+
+export default class Loader extends React.Component {
+   
+    readonly state: State = initialState;
 
     static getDerivedStateFromProps(nextProps, prevState) {
         return true

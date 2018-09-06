@@ -5,8 +5,10 @@
   "private": true,
   "dependencies": {
     "better-scroll": "^1.12.6",
+    "global": "^4.3.2",
     "history": "^4.7.2",
     "lodash": "^4.17.10",
+    "path": "^0.12.7",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
@@ -14,18 +16,26 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1"
   },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "tslint \"src/**/*.tsx\" "
   },
   "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/lodash": "^4.14.116",
+    "@types/node": "^10.9.3",
+    "@types/react": "^16.4.12",
+    "@types/react-dom": "^16.0.7",
     "react-app-rewire-less": "^2.1.2",
     "react-app-rewire-mobx": "^1.0.8",
-    "react-app-rewire-preact": "^1.0.1",
+    "react-app-rewire-typescript": "^2.0.2",
     "react-app-rewired": "^1.5.2"
   }
 }

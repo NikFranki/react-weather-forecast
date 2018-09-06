@@ -1,4 +1,4 @@
-import { DETAIL } from '../../constant';
+import { DETAIL } from 'Src/constant';
 
 const detail = (state = {}, action) => {
     switch (action.type) {

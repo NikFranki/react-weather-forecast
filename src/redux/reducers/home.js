@@ -1,4 +1,4 @@
-import { CREATEMAINDATA } from '../../constant';
+import { CREATEMAINDATA } from 'Src/constant';
 
 const maindata = (state = [], action) => {
     switch (action.type) {

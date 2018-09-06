@@ -1,13 +1,13 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import Header from '../../components/pwa.header';
-import Main from '../../components/pwa.main';
-import Dialog from '../../components/pwa.dialog';
-import Loader from '../../components/pwa.loader';
+import Header from 'Src/components/pwa.header.tsx';
+import Dialog from 'Src/components/pwa.dialog.tsx';
+import Loader from 'Src/components/pwa.loader.tsx';
+import Main from 'Src/components/pwa.main.tsx';
 import './App.less';
 
-import FeatchService from '../../services/base.fetch';
-import Util from '../../util';
+import FeatchService from 'Src/services/base.fetch';
+import Util from 'Src/util';
 
 class App extends Component {
     

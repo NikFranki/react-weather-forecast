@@ -1,12 +1,21 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import './pwa.header.less';
 
-export default class Header extends Component {
+const initialState = {
+    test: true
+}
+
+type State = Readonly<typeof initialState>
+
+interface IProps {
+    onRefresh: any;
+    onBtnAdd: any;
+}
+
+export default class Header extends React.Component<IProps> {
     header = null;
 
-    state = {
-        test: true
-    };
+    readonly state: State = initialState; 
 
     // 虚拟dom后，挂载之前调用
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -37,10 +46,15 @@ export default class Header extends Component {
     }
 
     renderHeader = () => {
+        const {
+            onRefresh,
+            onBtnAdd
+        } = this.props;
+
         return <header ref={this.setHeadRef} className="header">
                 <h1 className="header__title">Weather PWA</h1>
-                <button id="butRefresh" className="headerButton" aria-label="Refresh" onClick={this.props.onRefresh}></button>
-                <button id="butAdd" className="headerButton" aria-label="Add" onClick={this.props.onBtnAdd}></button>
+                <button id="butRefresh" className="headerButton" aria-label="Refresh" onClick={onRefresh}></button>
+                <button id="butAdd" className="headerButton" aria-label="Add" onClick={onBtnAdd}></button>
             </header>;
     }
 

@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import { Route } from 'react-router-dom';
-import RouterRouterer from '../router/router.config';
+import RouterRouterer from 'Src/router/router.config';
 
-export default class Page extends Component {
+interface Rprops {
+    exact: boolean;
+    key: string;
+    path: string;
+    component: any;
+}
+
+export default class Page extends React.Component {
 
     renderRouter = () => {
         return (
             RouterRouterer.map(config => {
-                const props = {
+                const props: Rprops = {
                     exact: config.exact,
                     key: config.url,
                     path: config.url,

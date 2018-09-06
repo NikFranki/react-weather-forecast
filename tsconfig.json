@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es6",
+    "lib": ["dom", "es7"],
+    "types": ["lodash"],
+    "typeRoots": ["node_modules/@types"],
+    // "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noResolve": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true
+  },
+  "exclude": [
+    "./node_modules/**/*",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest"
+  ],
+  "include": [
+      "./src/**/*"
+  ]
+}

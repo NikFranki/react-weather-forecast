@@ -1,10 +1,20 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import './pwa.dialog.less';
 
-export default class Dialog extends Component {
-    state = {
-        dialog: 'ss'
-    }
+const initialState = {
+    dialog: 'ss'
+}
+
+type State = Readonly<typeof initialState>
+
+interface IProps {
+    onAdd: any
+}
+export default class Dialog extends React.Component<IProps> {
+    dialog: any = null;
+    selectCityToAdd: any = null;
+
+    readonly state: State = initialState;
 
     static getDerivedStateFromProps(nextProps, prevState) {
         return true

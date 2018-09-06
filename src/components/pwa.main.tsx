@@ -1,21 +1,46 @@
-import React, { Component } from 'react';
-import History from '../util/history';
+import * as React from 'react';
+import History from 'Src/util/history';
 import './pwa.main.less';
-import { check_detail } from '../redux/actions';
-import StoreService from '../services/store.assistance';
+import { check_detail } from 'Src/redux/actions';
+import StoreService from 'Src/services/store.assistance';
 import BScroll from 'better-scroll';
 
-export default class Main extends Component {
-    state = {
+interface ItemObj {
+    cardLastUpdated: string;
+    description: string;
+    date: string;
+    iconClass: string;
+    temperatureValue: number;
+    sunrise: string;
+    sunset: string;
+    humidity: string;
+    windValue: number;
+    windDirection: string;
+    weekData: any;
+    label: string;
+}
+
+interface IProps {
+    data: [object];
+}
+
+interface IState {
+    main: string;
+}
+
+export default class Main extends React.Component<IProps, IState> {
+    cardTemplate: any = null;
+
+    public state: IState = {
         main: 'ss'
-    }
+    };
 
     static getDerivedStateFromProps(nextProps, prevState) {
         return true
     }
 
     componentDidMount() {
-        let scroll = new BScroll('.main', {
+        new BScroll('.main', {
             click: true
         });
     }
@@ -31,12 +56,12 @@ export default class Main extends Component {
     renderMain = () => {
         const {
             data
-        } = this.props;
+        }: {data:[object]} = this.props;
 
         return  <main className="main" style={{height: document.body.clientHeight - 56}}>
                     <div className="content">
                         {
-                            data.length > 0 && data.map((item, key) => {
+                            data.length > 0 && data.map((item: any, key) => {
                                 const {
                                     cardLastUpdated,
                                     description,
@@ -50,7 +75,7 @@ export default class Main extends Component {
                                     windDirection,
                                     weekData,
                                     label,
-                                } = item;
+                                }: ItemObj = item;
 
                                 return (
                                     <div onClick={

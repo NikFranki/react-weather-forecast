@@ -1,27 +1,39 @@
-import React, { Component } from 'react';
-import StoreService from '../../services/store.assistance';
+// import React, { Component } from 'react';
+import * as React from 'react';
+import StoreService from 'Src/services/store.assistance';
 import './index.less';
 
-export default class Detail extends Component {
+import home from 'Src/assets/images/home.png';
+import warn from 'Src/assets/images/warn.png';
+import more from 'Src/assets/images/more.png';
+
+interface IDetail {
+    label: string;
+    temperatureValue: number;
+    iconClass: string;
+    weekData?: any;
+    description: string;
+}
+
+export default class Detail extends React.Component {
 
     render() {
         const detail = StoreService.getStateStore().detail;
-        const item = 'item' in detail ?
+        const item: IDetail = 'item' in detail ?
             detail.item : 
             null;
         return (
-            // hello { item ? item.label : 'null' } !
-            item ?
+            item &&
             <div className="city-forecast-detail">
                 <section className="top">
-                    <img src={require('../../assets/images/home.png')} alt="home" />
+                    <img src={home} alt="home" />
                     <div className="city-name">
                             <p>{item.label}</p>
                         <p>Just updated</p>
                     </div>
                     <div className="operation">
-                        <img src={require('../../assets/images/warn.png')} alt="warn" />
-                        <img src={require('../../assets/images/more.png')} alt="more" />
+                        <img src={warn} alt="warn" />
+                        <img src={more} alt="more" />
                     </div>
                 </section>
                 <section className="content">
@@ -38,8 +50,6 @@ export default class Detail extends Component {
                 </section>
                     <section className={`bg ${item.iconClass}`}></section>
             </div>
-            :
-            null
         );
     }
 }
