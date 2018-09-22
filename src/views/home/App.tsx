@@ -1,16 +1,30 @@
-import _ from 'lodash';
-import React, { Component } from 'react';
-import Header from 'Src/components/pwa.header.tsx';
-import Dialog from 'Src/components/pwa.dialog.tsx';
-import Loader from 'Src/components/pwa.loader.tsx';
-import Main from 'Src/components/pwa.main.tsx';
+import * as _ from 'lodash';
+import * as React from 'react';
+import Header from 'Src/components/pwa.header';
+import Dialog from 'Src/components/pwa.dialog';
+import Loader from 'Src/components/pwa.loader';
+import Main from 'Src/components/pwa.main';
 import './App.less';
 
 import FeatchService from 'Src/services/base.fetch';
 import Util from 'Src/util';
 
-class App extends Component {
-    
+export namespace App {
+    export interface Props {
+        onCreateMainData: (arr: any) => {},
+        app: any;
+    }
+
+    export interface State {
+        showArr: any;
+    }
+}
+
+class App extends React.Component<App.Props, App.State> {
+    app: any;
+    loader: any;
+    dialog: any;
+    main: any;
     constructor(props) {
         super(props);
         this.app = {
@@ -67,7 +81,7 @@ class App extends Component {
             selectedCities,
             initialWeatherForecast
         } = this.app;
-        
+        let localStorage: any = window.localStorage;
         selectedCities = localStorage.selectedCities;
         if (selectedCities) {
             this.app.selectedCities = JSON.parse(selectedCities);
@@ -88,7 +102,7 @@ class App extends Component {
         }
     }
 
-    getForecast = async (key, label) => {
+    getForecast = async (key: any, label: any) => {
         const { initialWeatherForecast } = this.app;
 
         const statement = `select * from weather.forecast where woeid=${key}`;
@@ -136,7 +150,7 @@ class App extends Component {
         this.loader.show();
         const keys = Object.keys(visibleCards);
         keys.forEach(key => {
-          this.getForecast(key);
+          this.getForecast(key, '');
         });
     }
 
@@ -163,7 +177,7 @@ class App extends Component {
             wind: data.channel.wind
         };
     
-        const obj = {
+        const obj: any = {
             cardLastUpdated: data.created,
             description: current.text,
             date: current.date,

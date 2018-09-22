@@ -1,5 +1,5 @@
 import * as React from 'react';
-import History from 'Src/util/history';
+import History from 'Src/util/history.ts';
 import './pwa.main.less';
 import { check_detail } from 'Src/redux/actions';
 import StoreService from 'Src/services/store.assistance';

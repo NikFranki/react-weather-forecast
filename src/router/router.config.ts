@@ -1,4 +1,4 @@
-import PwaApp from '../containers/pwa.app';
+import PwaApp from '../containers/pwa.app.tsx';
 import Deatil from '../views/detail';
 
 export default [

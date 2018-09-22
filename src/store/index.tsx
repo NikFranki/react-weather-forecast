@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import store from 'Src/redux/reducers';
 
-export default class Store extends Component {
+interface IProps {
+    children: any,
+}
+
+export default class Store extends React.Component<IProps> {
     render() {
         const style = {width: '100%'};
         const obj = {store};

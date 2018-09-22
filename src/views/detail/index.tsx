@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
 import * as React from 'react';
-import StoreService from 'Src/services/store.assistance';
+import StoreService from '../../services/store.assistance';
 import './index.less';
 
 import home from 'Src/assets/images/home.png';

@@ -1,5 +1,5 @@
 class RequestService {
-    request = (url) => {
+    request = (url: string) => {
         try {
             const result = fetch(url).then(res => res.json()).then(res => res);
             // return new Promise(resolve => resolve(result));

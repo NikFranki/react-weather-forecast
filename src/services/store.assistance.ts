@@ -2,7 +2,7 @@ const store = window.mstore;
 
 class StoreAssistance {
 
-    dispatchAction = (action) => {
+    dispatchAction = (action: any) => {
         store.dispatch(action);
     }
     

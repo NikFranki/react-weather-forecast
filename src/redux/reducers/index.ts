@@ -3,6 +3,10 @@ import thunk from 'redux-thunk';
 import maindata from './home';
 import detail from './detail';
 
+declare global {
+    interface Window { mstore: any; }
+}
+
 const pwaReducers = combineReducers({
     maindata,
     detail

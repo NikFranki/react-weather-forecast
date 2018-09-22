@@ -1,10 +1,17 @@
+interface oneDayObj {
+    date?: any;
+    iconClass?: string;
+    tempHighValue?: any;
+    tempLowValue?: any;
+}
+
 class SkillMethod {
 
-    saveSelectedCities = (key, value) => {
+    saveSelectedCities = (key: any, value: any) => {
         localStorage[key] = JSON.stringify(value);
     }
 
-    getIconClass = weatherCode => {
+    getIconClass = (weatherCode: any): any => {
         // Weather codes: https://developer.yahoo.com/weather/documentation.html#codes
         weatherCode = parseInt(weatherCode);
         switch (weatherCode) {
@@ -68,13 +75,13 @@ class SkillMethod {
         }
     }
 
-    getWeekForecasts = (daysOfWeek, data) => {
-        let today = new Date();
+    getWeekForecasts = (daysOfWeek: any, data: any) => {
+        let today: any = new Date();
         today = today.getDay();
-        let weekForecasts = [];
+        let weekForecasts: any = [];
         daysOfWeek.map((con, i) => {
             const daily = data.channel.item.forecast[i];
-            let oneDayObj = {};
+            let oneDayObj: oneDayObj = {};
             if (daily) {
                 oneDayObj.date = daysOfWeek[(i + today) % 7];
                 oneDayObj.iconClass = this.getIconClass(daily.code),
