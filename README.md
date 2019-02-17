@@ -2,4 +2,4 @@
 
 ## 效果
 
-![image](http://p2bmmf3zh.bkt.clouddn.com/weather.gif)
+![image](http://qiniu.sevenyuan.cn/weather.gif)
